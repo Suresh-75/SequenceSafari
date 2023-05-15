@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sequence Safari [NORMAL] </title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Darumadrop+One&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Darumadrop+One&family=Sigmar&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&family=Sigmar&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Braah+One&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat+Brush&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Boogaloo&display=swap" rel="stylesheet">
+
+    <linK rel="stylesheet" href="app.css">
+
+</head>
+
+<body>
+    <div class="containerMain">
+        <nav class="navBar">
+            <a href="../index.html">HOME</a>
+            <span class="currentMode">MODE : <span>NORMAL</span></span>
+            <button class="resetBtn">RESET-SCORES</button>
+            <button class="gameMusic"></button>
+        </nav>
+        <div class="container">
+            <main class="timerContainer">
+                <p>TIME LEFT</p>
+                <span class="time">01:00</span>
+            </main>
+            <div class="gameBoard"></div>
+            <main class="score_foodBlocks">
+                <section class="scores">
+                    <div>
+                        <p>SCORE : <span class="currentScore">0</span></p>
+                        <p>HIGH-SCORE : <span class="highScore">0</span></p>
+                    </div>
+                </section>
+                <section class="foodBlocksContainer">
+                    <span>COLLECT THESE !!</span>
+                    <main class="foodBlocks">
+                        <div id="block"></div>
+                        <div id="block"></div>
+                        <div id="block"></div>
+                        <div id="block"></div>
+                    </main>
+                </section>
+            </main>
+        </div>
+        <dialog class="modal">
+            <section>
+                <header>
+                    <p class="gameOver">GAME OVER</p>
+                    <img class="gameOverPic" src="Images/Screenshot_2023-05-05_132551-removebg-preview.png">
+                </header>
+                <span>SCORE : <span class="currentScoreDisplay">0</span></span>
+                <section class="gameOverbtns">
+                    <button class="playBtn">PLAY AGAIN</button>
+                    <a href="../index.html" class="gameOverchangeMode">CHANGE MODE</a>
+                </section>
+            </section>
+        </dialog>
+    </div>
+    <script src="app.js" type="module"></script>
+</body>
+
+</html>
