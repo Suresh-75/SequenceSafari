@@ -4,6 +4,7 @@ let inputDirection = { x: 0, y: 0 };
 let lastInputDirection = { x: 0, y: 0 };
 
 settings.addEventListener("click", playPause)
+
 let pause = 0;
 function playPause() {
     if (pause === 0) {
@@ -15,6 +16,12 @@ function playPause() {
 }
 resumeBtn.addEventListener("click", () => {
     if (pause === 1) {
+        pause = 0;
+        window.addEventListener("keydown", userInputs)
+    }
+})
+resumeBtn.addEventListener("keydown", (e) => {
+    if (pause === 1 && e.whcih === 27) {
         pause = 0;
         window.addEventListener("keydown", userInputs)
     }

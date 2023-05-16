@@ -3,11 +3,8 @@ import { getInputDirection } from './inputs.js'
 // import { update as updateFood, draw as drawFood, getTimerText } from './food.js'
 
 // import { getInputDirection } from './inputs.js';
-const pauseBtn = document.querySelector(".pauseBtn")
 const gameMusicBtn = document.querySelector(".gameMusic");
-
 const modalUserInput = document.querySelector(".modalUserInput");
-
 const gameBoard = document.querySelector(".gameBoard")
 const closeBtn = document.querySelector(".closeBtn")
 const livesSlider = document.querySelector(".livesSlider");
@@ -17,17 +14,18 @@ let valueTime = document.querySelector(".valueTime");
 let valuelives = document.querySelector(".valuelives");
 let valueGrid = document.querySelector(".valueGrid");
 let gameMusic = new Audio("Musics/intense.mp3");
-let gameOverMusic = new Audio("Musics/gameOver.mp3")
-let explosionSound = new Audio("Musics/medium-explosion.mp3")
-let healthPowerSound = new Audio("Musics/healthPower.mp3")
-let speedPowerSound = new Audio("Musics/speedUp.mp3")
-let failureMusic = new Audio("Musics/failure.mp3")
+let gameOverMusic = new Audio("Musics/gameOver.mp3");
+let explosionSound = new Audio("Musics/medium-explosion.mp3");
+let healthPowerSound = new Audio("Musics/healthPower.mp3");
+let speedPowerSound = new Audio("Musics/speedUp.mp3");
+let failureMusic = new Audio("Musics/failure.mp3");
 const startGame = document.querySelector(".startGame");
 const modal = document.querySelector(".modal");
 const playBtn = document.querySelector(".playBtn");
-const settings = document.querySelector(".settings")
-const settingsModal = document.querySelector(".settingsModal")
-const resumeBtn = document.querySelector(".resumeBtn")
+const settings = document.querySelector(".settings");
+const settingsModal = document.querySelector(".settingsModal");
+const resumeBtn = document.querySelector(".resumeBtn");
+const loadGameBtn = document.querySelector(".loadGameBtn");
 
 livesSlider.oninput = function () {
     valuelives.textContent = this.value;
@@ -47,17 +45,51 @@ let userInputLives;
 let userInputGrid;
 let userInputTime;
 
+startGame.addEventListener("click", gameEngine)
 
-startGame.addEventListener("click", () => {
+
+function gameEngine() {
     userInputLives = valuelives.textContent;
     userInputGrid = valueGrid.textContent;
     userInputTime = valueTime.textContent;
+    let loadedValues = null;
+    loadGameBtn.addEventListener("click", () => {
+        loadedValues = JSON.parse(localStorage.getItem("savedValuesV"));
+        valueLoader();
+        // savedFoodPosition
+        // savedFoodSeq
+        // savedFoodBlocks
+        snakeBody.pop();
+        for (let i = 0; i < loadedValues.savedSnakeBody.length; i++) {
+
+            snakeBody.push(loadedValues.savedSnakeBody[i])
+        }
+
+    })
+
+    function valueLoader() {
+        userInputLives = loadedValues.savedLives;
+        for (let i = 0; i < 5; i++) {
+            lifeBox[i].classList.remove("life");
+        }
+        for (let i = 0; i < userInputLives; i++) {
+            lifeBox[i].classList.add("life");
+        }
+        livesLeft = userInputLives;
+        seconds = loadedValues.savedTime
+        score = loadedValues.savedScore
+        highScore2 = loadedValues.savedHighScore
+        foods = loadedValues.savedFoodPosition
+        foodSeq = loadedValues.savedFoodSeq
+        console.log(foods);
+        console.log(foodSeq);
+        foodBlocks = loadedValues.savedFoodBlocks
+    }
     modalUserInput.close();
     gameMusic.play();
     gameMusic.loop = true
 
-    let snakeSpeed = 5;
-
+    let snakeSpeed = 6;
     settings.addEventListener("click", () => {
         settingsModal.showModal();
     })
@@ -72,7 +104,7 @@ startGame.addEventListener("click", () => {
     function speedPowerUpFunction() {
         snakeSpeed += 2
         setTimeout(() => {
-            snakeSpeed = 6
+            snakeSpeed = 6.5
         }, 5000)
     }
 
@@ -91,19 +123,12 @@ startGame.addEventListener("click", () => {
             gameMusicBtn.style.backgroundImage = "url('images/mute.png')"
         }
     }
-
     //modal code
-
-
     playBtn.addEventListener("click", () => {
         modal.close();
         window.location = './'
     })
     //modal code
-
-
-
-
     let lastRenderedFrameTime = 0;
     let gameOver = false;
     function main(currentTime) {
@@ -143,7 +168,6 @@ startGame.addEventListener("click", () => {
     const lives = document.querySelector(".lives")
     // const life = document.querySelectorAll(".life")
     const lifeBox = document.querySelectorAll("#lifeBox")
-
     let initialLives = userInputLives;
     for (let i = 0; i < initialLives; i++) {
         lifeBox[i].classList.add("life");
@@ -157,6 +181,8 @@ startGame.addEventListener("click", () => {
         livesLeft--;
     }
     let livesLeft = initialLives;
+
+    console.log(livesLeft);
     function checkLivesLeft() {
         let lifeLost = 0;
         let Over = outsideGrid(snakeHead()) || snakeIntersection();
@@ -212,7 +238,7 @@ startGame.addEventListener("click", () => {
     let randomNum = 0;
     function randomWordGenerator() {
         while (previousNum === randomNum) {
-            randomNum = Math.floor(Math.random() * 40) + 1;
+            randomNum = Math.floor(Math.random() * 37) + 1;
         }
         previousNum = randomNum;
         let randomWord = words[randomNum - 1];
@@ -429,18 +455,15 @@ startGame.addEventListener("click", () => {
     function addSeconds() {
         seconds -= addedSeconds;
     }
-    let inputBombDirection = { x: 0, y: 0 };
+    let inputBombDirection = { x: 0, y: 0 }
     settings.addEventListener("click", PauseMusic)
-    let pause = 1;
+    let pause = 0;
     let over2 = 0;
     function PauseMusic() {
         if (pause === 0) {
             pause = 1;
             changeGameOver();
             addedSeconds = 0;
-            inputBombDirection = { x: 0, y: 0 };
-            window.removeEventListener("keydown", () => {
-            })
         }
     }
 
@@ -451,8 +474,6 @@ startGame.addEventListener("click", () => {
             pause = 0;
             addedSeconds = 1;
             changeGameOverN();
-            window.addEventListener("keydown", () => {
-            })
         }
     }
 
@@ -466,7 +487,7 @@ startGame.addEventListener("click", () => {
             if (over2 === 1) {
                 over2 = 0;
             }
-        }, 10000)
+        }, 12000)
     }
 
     // random words
@@ -620,7 +641,22 @@ startGame.addEventListener("click", () => {
     }
 
 
-})
+    const saveGameBtn = document.querySelector(".saveGameBtn")
+
+    saveGameBtn.addEventListener("click", () => {
+        let savedLives = livesLeft;
+        let savedTime = seconds;
+        let savedScore = score;
+        let savedHighScore = highScore2;
+        let savedSnakeBody = snakeBody;
+        let savedFoodPosition = foods;
+        let savedFoodSeq = foodSeq;
+        let savedFoodBlocks = foodBlocks;
+        let savedValues = { savedLives, savedTime, savedScore, savedHighScore, savedSnakeBody, savedFoodPosition, savedFoodSeq, savedFoodBlocks }
+        localStorage.setItem("savedValuesV", JSON.stringify(savedValues));
+        saveGameBtn.classList.add("disabled");
+    })
+}
 
 
 // timer

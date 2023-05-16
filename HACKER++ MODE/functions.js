@@ -14,7 +14,6 @@ export function update() {
     snakeBody[0].y += inputDirection.y;
 }
 export function draw(gameBoard) {
-
     snakeBody.forEach(segment => {
         if (segment.x === snakeBody[0].x && segment.y === snakeBody[0].y) {
             const snakeHead = document.createElement("div");
