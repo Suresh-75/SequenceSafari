@@ -16,7 +16,7 @@ body {
     bottom: 0;
     right: 0;
     width: 100vw;
-    min-height: 100vh;
+    /* min-height: 100vh; */
 }
 
 .containerMain {
@@ -27,7 +27,6 @@ body {
 
 .navBar {
     position: relative;
-    top: -10%;
     height: 2rem;
     display: flex;
     justify-content: space-between;
@@ -63,11 +62,11 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    height: 23rem;
-    width: 18rem;
+    height: 25rem;
+    width: 20rem;
     padding: 2rem;
     background-color: rgba(0, 0, 0, 0.943);
-    box-shadow: 0px 0px 15px rgb(191, 95, 57);
+    box-shadow: 0px 0px 15px rgb(64, 127, 190);
     border-radius: 0.75rem;
 }
 
@@ -85,6 +84,7 @@ body {
     color: white;
     text-align: center;
     font-size: x-large;
+    font-family: "recons";
 }
 
 .settingsContainer>button {
@@ -94,12 +94,20 @@ body {
     transition: 0.3s;
     cursor: pointer;
     box-sizing: border-box;
+    font-weight: bolder;
+    font-size: large;
+    font-family: "Roboto";
 }
 
 
 .saveGameBtn {
-    color: white;
-    background-color: rgb(70, 168, 224);
+    color: rgb(255, 255, 255);
+    background-color: rgb(64, 127, 190);
+}
+
+.loadGameBtn {
+    color: rgb(255, 255, 255);
+    background-color: rgb(64, 127, 190);
 }
 
 .saveGameBtn.disabled {
@@ -129,8 +137,8 @@ body {
 }
 
 .resetBtn {
-    color: white;
-    background-color: red;
+    color: rgb(255, 255, 255);
+    background-color: rgb(64, 127, 190);
 }
 
 
@@ -180,10 +188,10 @@ body {
 .currentMode {
     color: white;
     margin-right: 6rem;
-    position: fixed;
+    /* position: fixed;
     top: 5%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%); */
 }
 
 .currentMode>span {
@@ -221,7 +229,7 @@ body {
     width: 80vmin;
     height: 80vmin;
     background-color: rgb(0, 0, 0);
-    opacity: 0.8;
+    opacity: 0.9;
     display: grid;
     border-radius: 0.5rem;
     border: 1px solid rgb(128, 126, 126);
@@ -229,28 +237,24 @@ body {
 }
 
 .snake {
-    width: auto;
-    background: rgb(216, 91, 91);
+    background: rgb(74, 144, 214);
     transition: 0.5s ease-in-out;
     animation: smoothMovement 0.3s;
-    border-radius: 0.5rem;
+    border-radius: 0.55rem;
 }
 
 .snakeHead {
-    width: auto;
-    background: rgb(211, 14, 14);
+    background: rgb(14, 165, 211);
     transition: 0.5s ease-in-out;
-    border-radius: 0.5rem;
+    border-radius: 0.55rem;
 }
 
 .food {
     font-family: 'Exo 2', sans-serif;
-    width: auto;
     color: red;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 1rem;
     font-weight: bolder;
     font-size: large;
     background-color: white;
@@ -323,10 +327,13 @@ body {
 }
 
 .foodBlock {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     z-index: l;
     text-align: center;
-    width: 50px;
-    height: 50px;
+    width: 2em;
+    height: 2em;
     background-color: none;
     opacity: 1;
     margin: 5px;
@@ -344,9 +351,9 @@ body {
 .foodBlockOpaque {
     opacity: 1;
     transition: 0.2s ease-in;
-    color: rgb(17, 158, 26);
-    box-shadow: 0px 0px 10px rgb(17, 158, 26);
-    border: 3px solid rgb(17, 158, 26);
+    background-color: rgb(75, 130, 182);
+    box-shadow: 0px 0px 10px rgb(21, 110, 161);
+    border: 3px solid rgb(48, 97, 186);
 }
 
 .heartImg {
@@ -591,10 +598,11 @@ body {
 
 .modalUserInput {
     position: fixed;
-    width: 40vmin;
+    width: 20rem;
     height: max-content;
     padding: 1.5rem;
-    background-color: rgba(255, 255, 255, 0.532);
+    padding-top: 1rem;
+    background-color: rgba(255, 255, 255, 0.751);
     color: white;
     border: none;
     border-radius: 0.5rem;
@@ -624,31 +632,41 @@ body {
 .valueTime {
     position: absolute;
     right: 10%;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
 }
 
 .valuelives {
-    color: rgb(255, 0, 0);
+    text-align: center;
+    color: rgb(203, 28, 28);
     background-color: rgba(255, 255, 255, 0.553);
     width: 2rem;
     border-radius: 50%;
     position: absolute;
     top: 20%;
+    box-shadow: 0px 0px 10px rgb(63, 63, 63);
 }
 
 .valueGrid {
+    text-align: center;
     color: rgb(0, 0, 0);
     background-color: rgba(255, 255, 255, 0.553);
-    width: 3.2rem;
+    width: 2.3rem;
     height: 2rem;
     border-radius: 50%;
     font-weight: bold;
     text-align: center;
     position: absolute;
-    right: 5%;
     top: 45%;
+    right: 7%;
+    font-size: 1.25rem;
+    box-shadow: 0px 0px 10px rgb(63, 63, 63);
 }
 
 .valueTime {
+    text-align: center;
     color: rgb(12, 108, 15);
     background-color: rgba(255, 255, 255, 0.553);
     width: 2rem;
@@ -657,6 +675,7 @@ body {
     text-align: center;
     position: absolute;
     top: 70%;
+    box-shadow: 0px 0px 10px rgb(63, 63, 63);
 }
 
 .timeLabel {
@@ -683,6 +702,7 @@ input[type=range] {
     height: 0.5rem;
     background: #ffffff;
     cursor: pointer;
+    box-shadow: 0px 0px 10px rgb(63, 63, 63);
 }
 
 .livesSlider {
@@ -695,7 +715,8 @@ input[type=range]::-webkit-slider-thumb {
     width: 18px;
     height: 18px;
     background-color: none;
-    background-color: white;
+    background-color: rgb(253, 253, 253);
+    box-shadow: 0px 0px 10px rgb(63, 63, 63);
     border: 1px solid rgb(7, 7, 7);
     border-radius: 50%;
 }
@@ -713,14 +734,14 @@ input[type=range]::-webkit-slider-thumb {
     font-weight: bolder;
     transition: 0.2s;
     border-radius: 0.25rem;
-    background-color: rgb(136, 30, 30);
+    background-color: rgb(159, 35, 35);
 }
 
 .startGame:hover {
     cursor: pointer;
     background-color: white;
-    color: rgb(136, 30, 30);
-    box-shadow: 0px 0px 10px rgb(136, 30, 30);
+    color: rgb(159, 35, 35);
+    box-shadow: 0px 0px 10px rgb(176, 51, 51);
 }
 
 .startGame:active {
@@ -735,9 +756,10 @@ input[type=range]::-webkit-slider-thumb {
     border: none;
     text-align: center;
     font-size: 1rem;
-    font-weight: 900;
     border-radius: 10%;
-    display: none;
+    font-family: "GameCuben";
+    text-decoration: none;
+    color: black;
 }
 
 .closeBtn:hover {
@@ -753,6 +775,7 @@ input[type=range]::-webkit-slider-thumb {
     background: url(images/heart.png);
     background-repeat: no-repeat;
     background-size: contain;
+    border-radius: 45%;
 }
 
 .bomb {
@@ -783,13 +806,27 @@ input[type=range]::-webkit-slider-thumb {
 @keyframes smoothMovement {}
 
 
-@media(max-width:700px) {
 
-    .navBar,
-    .timerContainer,
-    .score_foodBlocks,
+@media (width<=512px) {
+    .currentMode {
+        display: none;
+    }
+
+    .timerContainer p,
     .heartImg {
         display: none;
+    }
+
+    .timerContainer .time {
+        height: 10%;
+        width: 100%;
+        font-size: 1em;
+    }
+
+    .timerContainer {
+        position: fixed;
+        top: 85%;
+        left: 35%;
     }
 
     .gameBoard {
@@ -798,12 +835,163 @@ input[type=range]::-webkit-slider-thumb {
         left: 50%;
         transform: translate(-50%, -50%);
     }
+
+    .score_foodBlocks {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 5rem;
+        align-items: center;
+    }
+
+    .foodBlocksContainer {
+        height: 80%;
+        font-size: 0.9em;
+        width: 100%;
+        right: 2.5%;
+        /* margin-left: 1.5rem; */
+    }
+
+    .foodBlocksContainer span {
+        display: none;
+
+    }
+
+    .food {
+        height: 2vh;
+        font-size: small;
+        border-radius: 5px;
+    }
+
+    .vidoeBackground {
+        display: none;
+        width: 100vmin;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    .scores {
+        width: 140%;
+        padding: 5px;
+        left: 5%;
+    }
+
+    .scores p {
+        font-size: small;
+        padding: 5px;
+    }
+
+    .lives {
+        position: fixed;
+        top: 78%;
+        right: 50%;
+        height: 1rem;
+    }
+
+    body {
+        background: url(images/futuristic-background-with-colorful-glowing-abstract-neon-lights.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-color: red;
+    }
 }
 
-@media (width<=1100px) {
+@media (512px<=width<=1000px) {
+
+    .timerContainer p,
+    .heartImg {
+        display: none;
+    }
+
+    .timerContainer .time {
+        height: 50%;
+        width: 100%;
+        font-size: 1.7rem;
+        padding: 0 1rem;
+    }
+
+    .timerContainer {
+        position: fixed;
+        top: 85%;
+        left: 40%;
+    }
+
+    .gameBoard {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .score_foodBlocks {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 5rem;
+        align-items: center;
+    }
+
+    .foodBlocksContainer {
+        height: 10%;
+        font-size: 2rem;
+        width: 45%;
+        position: fixed;
+        right: 2.5%;
+        top: 10%;
+        /* margin-left: 1.5rem; */
+    }
+
+    .foodBlocksContainer span {
+        display: none;
+
+    }
+
+    .food {
+        height: 2.5vh;
+        font-size: small;
+        border-radius: 5px;
+    }
+
     .vidoeBackground {
-        height: 100vh;
-        width: max-content;
+        display: none;
+        width: 100vmin;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    .scores {
+        height: 10%;
+        font-size: 2rem;
+        width: 45%;
+        position: fixed;
+        left: 2.5%;
+        top: 8%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .scores p {
+        font-size: 1.5rem;
+        padding: 5px 0;
+    }
+
+    .lives {
+        position: fixed;
+        top: 78%;
+        right: 50%;
+        height: 1rem;
+    }
+
+    body {
+        background: url(images/futuristic-background-with-colorful-glowing-abstract-neon-lights.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-color: red;
     }
 }
 
@@ -825,4 +1013,14 @@ input[type=range]::-webkit-slider-thumb {
 @font-face {
     font-family: "Valorax";
     src: url("Fonts/Valorax-lg25V.otf");
+}
+
+@font-face {
+    font-family: "lethal";
+    src: url("Fonts/lethal-injector-bold-font/");
+}
+
+@font-face {
+    font-family: "recons";
+    src: url("Fonts/recons-font/Recons-1GYV2.ttf");
 }

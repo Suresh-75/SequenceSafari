@@ -37,9 +37,6 @@ timeSlider.oninput = function () {
     valueTime.textContent = this.value;
 }
 modalUserInput.showModal();
-closeBtn.addEventListener("click", () => {
-    modalUserInput.close();
-})
 
 let userInputLives;
 let userInputGrid;
@@ -59,12 +56,12 @@ function gameEngine() {
         // savedFoodPosition
         // savedFoodSeq
         // savedFoodBlocks
-        snakeBody.pop();
+        for (let i = 0; i < snakeBody.length; i++) {
+            snakeBody.pop();
+        }
         for (let i = 0; i < loadedValues.savedSnakeBody.length; i++) {
-
             snakeBody.push(loadedValues.savedSnakeBody[i])
         }
-
     })
 
     function valueLoader() {
@@ -79,11 +76,7 @@ function gameEngine() {
         seconds = loadedValues.savedTime
         score = loadedValues.savedScore
         highScore2 = loadedValues.savedHighScore
-        foods = loadedValues.savedFoodPosition
-        foodSeq = loadedValues.savedFoodSeq
-        console.log(foods);
-        console.log(foodSeq);
-        foodBlocks = loadedValues.savedFoodBlocks
+
     }
     modalUserInput.close();
     gameMusic.play();
