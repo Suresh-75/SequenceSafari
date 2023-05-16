@@ -138,7 +138,7 @@ body {
     margin-top: 1.5rem;
     width: 80vmin;
     height: 80vmin;
-    background-color: rgba(193, 61, 49, 0.911);
+    background-color: rgb(0, 0, 0);
     opacity: 0.8;
     display: grid;
     border-radius: 0.5rem;
@@ -148,16 +148,17 @@ body {
 
 .snake {
     width: auto;
-    background: rgb(251, 169, 76);
+    background: rgb(216, 91, 91);
     transition: 0.5s ease-in-out;
     animation: smoothMovement 0.3s;
+    border-radius: 0.5rem;
 }
 
 .snakeHead {
     width: auto;
-    background: rgb(225, 186, 177);
+    background: rgb(211, 14, 14);
     transition: 0.5s ease-in-out;
-
+    border-radius: 0.5rem;
 }
 
 .food {
@@ -510,7 +511,7 @@ body {
     width: 40vmin;
     height: max-content;
     padding: 1.5rem;
-    background-color: rgba(255, 255, 255, 0.726);
+    background-color: rgba(255, 255, 255, 0.744);
     color: white;
     border: none;
     border-radius: 0.5rem;
@@ -676,6 +677,13 @@ input[type=range]::-webkit-slider-thumb {
     background-repeat: no-repeat;
     background-size: contain;
 }
+
+.portal {
+    background: url(images/portal-removebg-preview.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
 
 /* 
 .lifePower.Scale {

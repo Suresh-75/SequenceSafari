@@ -1,5 +1,5 @@
 import { draw as drawSnake, update as updateSnake, getSnakeHead as snakeHead, onSnake, expandSnake, snakeBody, onSnakeBody } from './functions.js'
-
+import { getInputDirection } from './inputs.js'
 // import { update as updateFood, draw as drawFood, getTimerText } from './food.js'
 
 // import { getInputDirection } from './inputs.js';
@@ -20,6 +20,7 @@ let gameMusic = new Audio("Musics/intense.mp3");
 let gameOverMusic = new Audio("Musics/gameOver.mp3")
 let explosionSound = new Audio("Musics/medium-explosion.mp3")
 let healthPowerSound = new Audio("Musics/healthPower.mp3")
+let speedPowerSound = new Audio("Musics/speedUp.mp3")
 let failureMusic = new Audio("Musics/failure.mp3")
 const startGame = document.querySelector(".startGame");
 const modal = document.querySelector(".modal");
@@ -419,6 +420,7 @@ startGame.addEventListener("click", () => {
     function addSeconds() {
         seconds -= addedSeconds;
     }
+    let inputBombDirection = { x: 0, y: 0 };
     pauseBtn.addEventListener("click", playPauseMusic)
     let pause = 1;
     let over2 = 0;
@@ -427,6 +429,7 @@ startGame.addEventListener("click", () => {
             pause = 1;
             changeGameOver();
             addedSeconds = 0;
+            inputBombDirection = { x: 0, y: 0 };
             window.removeEventListener("keydown", () => {
             })
             pauseBtn.style.backgroundImage = "url('/images/play-button.png')"
@@ -474,6 +477,16 @@ startGame.addEventListener("click", () => {
     let bombObstacle = [
         { ...getRandomGridPosition() },
     ]
+    let portals = [
+        { ...getRandomPortalGridPosition() },
+        { ...getRandomPortalGridPosition() }
+    ]
+    function getRandomPortalGridPosition() {
+        let xPos = Math.floor(Math.random() * (userInputGrid - 5)) + 3;
+        let yPos = Math.floor(Math.random() * (userInputGrid - 5)) + 3;
+        let randomGridPosition = { x: xPos, y: yPos };
+        return randomGridPosition;
+    }
     function updatePowerUps() {
         for (let i = 0; i < lifePowerUps.length; i++) {
             if (onSnake(lifePowerUps[i])) {
@@ -492,6 +505,7 @@ startGame.addEventListener("click", () => {
         }
         for (let i = 0; i < speedPowerUps.length; i++) {
             if (onSnake(speedPowerUps[i])) {
+                speedPowerSound.play();
                 speedPowerUps.splice(i, 1)
                 speedPowerUpFunction();
             }
@@ -516,6 +530,17 @@ startGame.addEventListener("click", () => {
                     )
                 }, 5000)
             }
+        }
+
+        if (onSnake(portals[0])) {
+            let inputDir = getInputDirection()
+            snakeBody[0].x = portals[1].x + inputDir.x;
+            snakeBody[0].y = portals[1].y + inputDir.y;
+        }
+        if (onSnake(portals[1])) {
+            let inputDir = getInputDirection()
+            snakeBody[0].x = portals[0].x + inputDir.x;
+            snakeBody[0].y = portals[0].y + inputDir.y;
         }
     }
     function updateBombPosition() {
@@ -555,9 +580,16 @@ startGame.addEventListener("click", () => {
             obstacle.classList.add("bomb");
             gameBoard.append(obstacle);
         }
+        for (let i = 0; i < portals.length; i++) {
+            const portal = document.createElement("div");
+            portal.style.gridRowStart = portals[i].y;
+            portal.style.gridColumnStart = portals[i].x;
+            portal.classList.add("portal");
+            gameBoard.append(portal);
+        }
 
     }
-    let inputBombDirection = { x: 0, y: 0 };
+
     function getInputBombDirection() {
         if ((4 <= bombObstacle[0].x <= (userInputGrid - 3)) && inputBombDirection.x === 0) {
             inputBombDirection = { x: 1, y: 0 };
