@@ -25,6 +25,9 @@ let failureMusic = new Audio("Musics/failure.mp3")
 const startGame = document.querySelector(".startGame");
 const modal = document.querySelector(".modal");
 const playBtn = document.querySelector(".playBtn");
+const settings = document.querySelector(".settings")
+const settingsModal = document.querySelector(".settingsModal")
+const resumeBtn = document.querySelector(".resumeBtn")
 
 livesSlider.oninput = function () {
     valuelives.textContent = this.value;
@@ -55,6 +58,12 @@ startGame.addEventListener("click", () => {
 
     let snakeSpeed = 5;
 
+    settings.addEventListener("click", () => {
+        settingsModal.showModal();
+    })
+    resumeBtn.addEventListener("click", () => {
+        settingsModal.close();
+    })
     // speed increment
     setInterval(() => {
         snakeSpeed += 0.5;
@@ -421,10 +430,10 @@ startGame.addEventListener("click", () => {
         seconds -= addedSeconds;
     }
     let inputBombDirection = { x: 0, y: 0 };
-    pauseBtn.addEventListener("click", playPauseMusic)
+    settings.addEventListener("click", PauseMusic)
     let pause = 1;
     let over2 = 0;
-    function playPauseMusic() {
+    function PauseMusic() {
         if (pause === 0) {
             pause = 1;
             changeGameOver();
@@ -432,17 +441,21 @@ startGame.addEventListener("click", () => {
             inputBombDirection = { x: 0, y: 0 };
             window.removeEventListener("keydown", () => {
             })
-            pauseBtn.style.backgroundImage = "url('/images/play-button.png')"
         }
-        else {
+    }
+
+
+    resumeBtn.addEventListener("click", playMusic)
+    function playMusic() {
+        if (pause === 1) {
             pause = 0;
             addedSeconds = 1;
             changeGameOverN();
             window.addEventListener("keydown", () => {
             })
-            pauseBtn.style.backgroundImage = "url('images/pause.png')"
         }
     }
+
     function changeGameOver() {
         if (over2 === 0) {
             over2 = 1;

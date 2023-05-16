@@ -48,9 +48,11 @@
         <nav class="navBar">
             <a href="../index.html">HOME</a>
             <span class="currentMode">MODE : <span>HACKER++</span></span>
-            <button class="pauseBtn"></button>
-            <button class="resetBtn">RESET-SCORES</button>
-            <button class="gameMusic"></button>
+            <!-- <button class="pauseBtn"></button> -->
+            <button class="settings"></button>
+            <!-- <button class="pauseBtn"></button>
+            <button class="resetBtn">RESET-SCORES</button> 
+            <button class="gameMusic"></button> -->
         </nav>
         <div class="container">
             <section class="lives_Time">
@@ -121,6 +123,19 @@
             <main class="btns">
                 <input type="submit" class="startGame" value="START GAME">
             </main>
+        </dialog>
+        <dialog class="settingsModal">
+            <span>SETTINGS</span>
+            <section class="settingsContainer">
+                <button class="saveGameBtn">SAVE GAME</button>
+                <button class="loadGameBtn">LOAD GAME</button>
+                <button class="resetBtn">RESET-SCORES</button>
+                <main class="musicModal">
+                    <span>Music</span>
+                    <button class="gameMusic"></button>
+                </main>
+                <button class="resumeBtn">RESUME</button>
+            </section>
         </dialog>
     </div>
     <script src="app.js" type="module"></script>

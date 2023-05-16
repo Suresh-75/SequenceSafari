@@ -1,22 +1,24 @@
-const pauseBtn = document.querySelector(".pauseBtn")
+const settings = document.querySelector(".settings")
+const resumeBtn = document.querySelector(".resumeBtn");
 let inputDirection = { x: 0, y: 0 };
 let lastInputDirection = { x: 0, y: 0 };
 
-pauseBtn.addEventListener("click", playPause)
-let pause = 1;
+settings.addEventListener("click", playPause)
+let pause = 0;
 function playPause() {
     if (pause === 0) {
         pause = 1;
         inputDirection = { x: 0, y: 0 };
         window.removeEventListener("keydown", userInputs)
-        pauseBtn.style.backgroundImage = "url('images/icons8-play-30.png')"
     }
-    else {
+
+}
+resumeBtn.addEventListener("click", () => {
+    if (pause === 1) {
         pause = 0;
         window.addEventListener("keydown", userInputs)
-        pauseBtn.style.backgroundImage = "url('images/pause.png')"
     }
-}
+})
 window.addEventListener("keydown", userInputs)
 function userInputs(e) {
 
