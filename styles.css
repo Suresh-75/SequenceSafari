@@ -80,6 +80,7 @@ i:hover {
 }
 
 .gameName {
+    z-index: 1;
     text-align: center;
     padding: 1rem;
     color: white;
@@ -90,7 +91,6 @@ i:hover {
 }
 
 .mainContainer {
-    z-index: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -98,6 +98,7 @@ i:hover {
 }
 
 .madeBy {
+    z-index: 1;
     position: fixed;
     bottom: 0;
     right: 45%;
@@ -106,26 +107,37 @@ i:hover {
 }
 
 .btns {
+    z-index: 1;
+    position: relative;
+    right: 18%;
     display: grid;
+    grid-template-columns: repeat(3, 1fr);
     width: 10%;
 }
 
-.btns>a {
-    width: 100px;
+.btns a {
+    width: 10rem;
+    height: 10rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-size: x-large;
     cursor: pointer;
-    z-index: 1;
     text-decoration: none;
-    color: rgb(243, 241, 241);
-    padding: 0.75rem 1rem;
+    color: rgb(14, 13, 13);
+    padding: 0.75rem 1.2rem;
     background-color: none;
     text-align: center;
     margin: 1rem;
     border: none;
     font-family: 'Russo One', sans-serif;
+    background-color: white;
+    border-radius: 50%;
+    background-color: green;
+    transition: 0.2s;
 }
 
-.normalTri {
+/* .normalTri {
     position: absolute;
     top: 50%;
     left: 22%;
@@ -144,12 +156,11 @@ i:hover {
     left: 37%;
     width: 0;
     height: 0;
-    transform: rotate(-180deg);
     border: 13rem solid rgb(63, 171, 30);
+    border-bottom-color: rgb(98, 186, 26);
     border-left-color: transparent;
     border-right-color: transparent;
-    border-top-color: rgb(98, 186, 26);
-    border-bottom-color: transparent;
+    border-top-color: transparent;
 }
 
 .hackerPlusTri {
@@ -163,43 +174,33 @@ i:hover {
     border-left-color: transparent;
     border-right-color: transparent;
     border-bottom-color: transparent;
-}
+}*/
 
-.normalMode {
-    position: absolute;
-    top: 55%;
-    left: 30%;
-    transition: 0.2s;
-}
+
 
 
 .normalMode:hover {
     letter-spacing: 2px;
-    color: green;
+    color: rgb(248, 248, 248);
+    background-color: blue;
+    box-shadow: 0px 0px 20px blue;
 }
 
-.hackerMode {
-    position: absolute;
-    top: 62%;
-    left: 45%;
-    transition: 0.2s;
-}
+
 
 .hackerMode:hover {
     letter-spacing: 2px;
-    color: gold;
+    color: white;
+    background-color: gold;
+    box-shadow: 0px 0px 20px gold;
 }
 
-.hackerPlusMode {
-    position: absolute;
-    top: 55%;
-    right: 29%;
-    transition: 0.2s;
-}
 
 .hackerPlusMode:hover {
     letter-spacing: 2px;
-    color: rgb(210, 50, 50);
+    color: white;
+    background-color: rgb(255, 0, 0);
+    box-shadow: 0px 0px 20px red;
 }
 
 .myName {
