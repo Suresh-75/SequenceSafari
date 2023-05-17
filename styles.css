@@ -2,130 +2,212 @@
     margin: 0;
     padding: 0;
     font-family: 'Roboto Slab', serif;
+    user-select: none;
 }
 
-body {
-    background: linear-gradient(to right top, #12A7EB, #159235);
-    background-repeat: no-repeat;
-    min-height: 100vh;
-    margin: 0;
-    padding: 0;
-}
-
-.heading {
+section {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-color: rgb(24, 24, 24);
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    overflow: hidden;
 }
 
-.gameName {
-    font-family: 'Sigmar', cursive;
-    font-size: 5rem;
-    color: white;
+.rows {
+    position: relative;
+    width: 100%;
+    top: -50%;
+    left: -50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: row;
+    white-space: nowrap;
+    transform: rotate(-45deg);
+}
+
+i {
+    opacity: 0.5;
     display: inline-block;
+    fill: black;
+    width: 75px;
+    transition: 1s;
+    height: 45px;
+    user-select: none;
+    cursor: default;
+    padding: 25px 10px;
 }
 
-.snakeImg {
-    width: 100px;
-    margin-top: 1rem;
+i:hover {
+    transition: 0s;
+    fill: #0f0;
+    text-shadow: 0px 0px 100px #0f0;
+}
+
+.rows div {
+    animation: animate1 120s linear infinite;
+    animation-delay: -120s;
+}
+
+.rows:nth-child(even) div {
+    animation: animate2 120s linear infinite;
+    animation-delay: -60s;
+}
+
+@keyframes animate1 {
+    0% {
+        transform: translateX(100%);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes animate2 {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
 }
 
 .heart {
-    width: 15px;
-    margin: 2px;
+    color: red;
 }
 
-.btns {
-    padding-top: 1.5rem;
-    display: grid;
-    grid-template-rows: repeat(4, 1fr);
-    gap: 1rem;
+.gameName {
+    text-align: center;
+    padding: 1rem;
+    color: white;
+    font-size: 5rem;
+    font-family: 'Sigmar', cursive;
+    pointer-events: none;
+    user-select: none;
+}
+
+.mainContainer {
+    z-index: 1;
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 50vmin;
 }
 
-.modes {
-    margin-top: 5rem;
-    text-align: center;
+.madeBy {
+    position: fixed;
+    bottom: 0;
+    right: 45%;
     color: white;
-    font-size: 2rem;
-    font-family: 'Kalam', cursive;
+    padding: 0.25rem
 }
 
-.normalMode {
-    margin-top: 5rem;
-    border: 3px solid rgb(250, 250, 250);
-    transition: 0.2s;
-    width: 12rem;
-}
-
-.normalMode:hover {
-    border: 3px solid rgb(99, 203, 47);
-    letter-spacing: 2px;
-    box-shadow: 0px 0px 10px green;
-    color: rgb(99, 203, 47);
-}
-
-.hackerMode {
-    margin-top: 5rem;
-    border: 3px solid rgb(250, 250, 250);
-    transition: 0.3s;
-}
-
-.hackerMode:hover {
-    border: 3px solid rgb(183, 144, 19);
-    letter-spacing: 2px;
-    color: rgb(183, 144, 19);
-    box-shadow: 0px 0px 10px rgb(193, 158, 44);
-}
-
-.hacker_Mode {
-    margin-top: 5rem;
-    border: 3px solid rgb(250, 250, 250);
-    transition: 0.3s;
-}
-
-.hacker_Mode:hover {
-    border: 3px solid rgb(211, 0, 0);
-    letter-spacing: 2px;
-    box-shadow: 0px 0px 10px rgb(255, 0, 0);
-    color: rgb(210, 0, 0);
+.btns {
+    display: grid;
+    width: 10%;
 }
 
 .btns>a {
-    background-color: white;
-    padding: 1rem;
-    margin: 1rem;
-    text-align: center;
+    width: 100px;
+    font-size: x-large;
+    cursor: pointer;
+    z-index: 1;
     text-decoration: none;
-    color: rgb(34, 35, 34);
-    border-radius: 0.5rem;
+    color: rgb(243, 241, 241);
+    padding: 0.75rem 1rem;
+    background-color: none;
+    text-align: center;
+    margin: 1rem;
+    border: none;
     font-family: 'Russo One', sans-serif;
 }
 
-
-.madeBy {
-    text-align: center;
-    color: white;
-    font-family: 'Roboto Slab', serif;
+.normalTri {
     position: absolute;
-    bottom: 1%;
+    top: 50%;
+    left: 22%;
+    width: 0;
+    height: 0;
+    border: 13rem solid rgb(63, 171, 30);
+    border-left-color: transparent;
+    border-right-color: transparent;
+    border-top-color: rgb(98, 186, 26);
+    border-bottom-color: transparent;
 }
 
-.madeBy a {
+.hackerTri {
+    position: absolute;
+    top: 25%;
+    left: 37%;
+    width: 0;
+    height: 0;
+    transform: rotate(-180deg);
+    border: 13rem solid rgb(63, 171, 30);
+    border-left-color: transparent;
+    border-right-color: transparent;
+    border-top-color: rgb(98, 186, 26);
+    border-bottom-color: transparent;
+}
+
+.hackerPlusTri {
+    position: absolute;
+    top: 50%;
+    left: 52%;
+    width: 0;
+    height: 0;
+    border: 13rem solid rgb(63, 171, 30);
+    border-top-color: rgb(98, 186, 26);
+    border-left-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+}
+
+.normalMode {
+    position: absolute;
+    top: 55%;
+    left: 30%;
+    transition: 0.2s;
+}
+
+
+.normalMode:hover {
+    letter-spacing: 2px;
+    color: green;
+}
+
+.hackerMode {
+    position: absolute;
+    top: 62%;
+    left: 45%;
+    transition: 0.2s;
+}
+
+.hackerMode:hover {
+    letter-spacing: 2px;
+    color: gold;
+}
+
+.hackerPlusMode {
+    position: absolute;
+    top: 55%;
+    right: 29%;
+    transition: 0.2s;
+}
+
+.hackerPlusMode:hover {
+    letter-spacing: 2px;
+    color: rgb(210, 50, 50);
+}
+
+.myName {
     text-decoration: none;
     color: white;
     transition: 0.2s;
 }
 
-.madeBy a:hover {
-    text-decoration: none;
-    color: rgb(0, 0, 0);
-}
-
-.footer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.myName:hover {
+    color: rgb(48, 160, 28)
 }
