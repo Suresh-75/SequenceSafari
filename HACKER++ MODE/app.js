@@ -174,8 +174,6 @@ function gameEngine() {
         livesLeft--;
     }
     let livesLeft = initialLives;
-
-    console.log(livesLeft);
     function checkLivesLeft() {
         let lifeLost = 0;
         let Over = outsideGrid(snakeHead()) || snakeIntersection();
