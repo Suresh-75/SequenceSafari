@@ -36,7 +36,7 @@ i {
     height: 45px;
     user-select: none;
     cursor: default;
-    padding: 25px 10px;
+    padding: 2rem 0.5rem;
 }
 
 i:hover {
@@ -101,9 +101,8 @@ i:hover {
     z-index: 1;
     position: fixed;
     bottom: 0;
-    right: 45%;
     color: white;
-    padding: 0.25rem
+    padding: 1rem 0;
 }
 
 .btns {
@@ -111,10 +110,9 @@ i:hover {
     position: fixed;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    width: 10%;
     position: absolute;
-    top: 55%;
-    left: 25%;
+    top: 50%;
+    left: 50%;
     transform: translate(-50%, -50%);
     color: white;
 }
@@ -143,8 +141,8 @@ i:hover {
     background-color: #1bb32d;
     clip-path: polygon(49% 0%, 51% 0, 100% 100%, 0 100%);
     background: linear-gradient(90deg, rgb(6, 102, 6), rgb(99, 172, 81));
-    width: 18rem;
-    height: 15rem;
+    width: 50vmin;
+    height: 30vmin;
     transition: 0.2s;
     cursor: pointer;
     position: relative;
@@ -163,8 +161,8 @@ i:hover {
     background-color: #1bb32d;
     clip-path: polygon(0 0, 50% 100%, 100% 0);
     background: linear-gradient(0deg, rgb(99, 172, 81), rgb(11, 128, 11));
-    width: 18rem;
-    height: 15rem;
+    width: 50vmin;
+    height: 30vmin;
     transition: 0.2s;
     cursor: pointer;
 }
@@ -181,8 +179,8 @@ i:hover {
     background-color: #1bb32d;
     clip-path: polygon(49% 0%, 51% 0, 100% 100%, 0 100%);
     background: linear-gradient(270deg, rgb(11, 128, 11), rgb(99, 172, 81));
-    width: 18rem;
-    height: 15rem;
+    width: 50vmin;
+    height: 30vmin;
     transition: 0.2s;
     cursor: pointer;
     position: relative;
@@ -223,8 +221,6 @@ i:hover {
 
 .hackerPlusMode:hover {
     letter-spacing: 2px;
-
-
 }
 
 .myName {
@@ -235,4 +231,10 @@ i:hover {
 
 .myName:hover {
     color: rgb(48, 160, 28)
+}
+
+@media (width<=1000px) {
+    .gameName {
+        font-size: 4rem;
+    }
 }
