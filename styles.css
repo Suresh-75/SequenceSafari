@@ -108,99 +108,123 @@ i:hover {
 
 .btns {
     z-index: 1;
-    position: relative;
-    right: 18%;
+    position: fixed;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     width: 10%;
+    position: absolute;
+    top: 55%;
+    left: 25%;
+    transform: translate(-50%, -50%);
+    color: white;
 }
 
 .btns a {
-    width: 10rem;
-    height: 10rem;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: x-large;
     cursor: pointer;
     text-decoration: none;
-    color: rgb(14, 13, 13);
+    color: rgb(244, 238, 238);
     padding: 0.75rem 1.2rem;
     background-color: none;
     text-align: center;
     margin: 1rem;
     border: none;
     font-family: 'Russo One', sans-serif;
-    background-color: white;
-    border-radius: 50%;
-    background-color: green;
     transition: 0.2s;
 }
 
-/* .normalTri {
-    position: absolute;
-    top: 50%;
-    left: 22%;
-    width: 0;
-    height: 0;
-    border: 13rem solid rgb(63, 171, 30);
-    border-left-color: transparent;
-    border-right-color: transparent;
-    border-top-color: rgb(98, 186, 26);
-    border-bottom-color: transparent;
+.normalTri {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1bb32d;
+    clip-path: polygon(50% 0, 100% 100%, 0 100%);
+    background: linear-gradient(90deg, rgb(6, 102, 6), rgb(99, 172, 81));
+    width: 18rem;
+    height: 15rem;
+    transition: 0.2s;
+    cursor: pointer;
+    position: relative;
+    right: -45%;
+}
+
+.normalTri:hover {
+    letter-spacing: 2px;
+    background: rgb(20, 92, 144);
 }
 
 .hackerTri {
-    position: absolute;
-    top: 25%;
-    left: 37%;
-    width: 0;
-    height: 0;
-    border: 13rem solid rgb(63, 171, 30);
-    border-bottom-color: rgb(98, 186, 26);
-    border-left-color: transparent;
-    border-right-color: transparent;
-    border-top-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1bb32d;
+    clip-path: polygon(0 0, 50% 100%, 100% 0);
+    background: linear-gradient(0deg, rgb(99, 172, 81), rgb(11, 128, 11));
+    width: 18rem;
+    height: 15rem;
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+.hackerTri:hover {
+    letter-spacing: 2px;
+    background: rgb(188, 181, 36);
 }
 
 .hackerPlusTri {
-    position: absolute;
-    top: 50%;
-    left: 52%;
-    width: 0;
-    height: 0;
-    border: 13rem solid rgb(63, 171, 30);
-    border-top-color: rgb(98, 186, 26);
-    border-left-color: transparent;
-    border-right-color: transparent;
-    border-bottom-color: transparent;
-}*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1bb32d;
+    clip-path: polygon(50% 0, 100% 100%, 0 100%);
+    background: linear-gradient(270deg, rgb(11, 128, 11), rgb(99, 172, 81));
+    width: 18rem;
+    height: 15rem;
+    transition: 0.2s;
+    cursor: pointer;
+    position: relative;
+    right: 45%;
+}
 
+.hackerPlusTri:hover {
+    letter-spacing: 2px;
+    background: rgb(231, 18, 18);
+    color: red;
+}
 
+.normalMode {
+    position: relative;
+    top: 15%;
+}
 
+.hackerMode {
+    position: relative;
+    top: -10%;
+}
+
+.hackerPlusMode {
+    position: relative;
+    top: 15%;
+}
 
 .normalMode:hover {
     letter-spacing: 2px;
     color: rgb(248, 248, 248);
-    background-color: blue;
-    box-shadow: 0px 0px 20px blue;
 }
-
 
 
 .hackerMode:hover {
     letter-spacing: 2px;
     color: white;
-    background-color: gold;
-    box-shadow: 0px 0px 20px gold;
 }
-
 
 .hackerPlusMode:hover {
     letter-spacing: 2px;
-    color: white;
-    background-color: rgb(255, 0, 0);
-    box-shadow: 0px 0px 20px red;
+
+
 }
 
 .myName {
