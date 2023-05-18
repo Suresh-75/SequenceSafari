@@ -416,9 +416,18 @@ function gameEngine() {
         interval = setInterval(timer, 1000);
     }
     )
+
+    window.addEventListener("touchStart", () => {
+        if (getInputDirection() !== { x: 0, y: 0 }) {
+            if (interval) {
+                return;
+            }
+            interval = setInterval(timer, 1000);
+        }
+    }
+    )
     function timer() {
         addSeconds()
-
         let mins = Math.floor((seconds) / 60);
         let secs = (seconds - (mins * 60)) % 60;
         if (secs < 10) {
