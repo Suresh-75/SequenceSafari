@@ -164,8 +164,7 @@ i:hover {
 }
 
 .normalTri:hover {
-    letter-spacing: 2px;
-    background: rgb(20, 92, 144);
+    opacity: 0.7;
 }
 
 .hackerTri {
@@ -184,8 +183,7 @@ i:hover {
 }
 
 .hackerTri:hover {
-    letter-spacing: 2px;
-    background: rgb(188, 181, 36);
+    opacity: 0.7;
 }
 
 .hackerPlusTri {
@@ -220,11 +218,11 @@ i:hover {
     height: 25vmin;
     transition: 0.2s;
     cursor: pointer;
+    transition: 0.2s;
 }
 
 .multiTri:hover {
-    letter-spacing: 2px;
-    background: rgb(134, 134, 126);
+    opacity: 0.7;
 }
 
 .multiTri>a {
@@ -232,9 +230,8 @@ i:hover {
 }
 
 .hackerPlusTri:hover {
-    letter-spacing: 2px;
-    background: rgb(231, 18, 18);
-    color: red;
+    opacity: 0.7;
+    color: red !important;
 }
 
 .normalMode {
@@ -273,10 +270,70 @@ i:hover {
     color: rgb(48, 160, 28)
 }
 
-.multiplayerBtn {}
+.multiImg {
+    width: 6rem;
+    height: max-content;
+    position: absolute;
+    right: -120%;
+    transition: 0.2s;
+}
+
+.multiImg:hover {
+    width: 6.2rem;
+    height: max-content;
+}
 
 @media (width<=1000px) {
     .gameName {
         font-size: 4rem;
+    }
+
+    .multiImg {
+        width: 6rem;
+        height: max-content;
+        position: absolute;
+        right: -60%;
+        transition: 0.2s;
+    }
+
+    .multiTri {
+        pointer-events: none;
+        cursor: not-allowed;
+        opacity: 0.3;
+    }
+
+    .normalTri {
+        pointer-events: none;
+        cursor: not-allowed;
+        opacity: 0.3;
+    }
+
+    .hackerTri {
+        pointer-events: none;
+        cursor: not-allowed;
+        opacity: 0.3;
+    }
+
+    .btns a,
+    .btns2 a {
+        font-size: 2rem;
+    }
+
+    .rows {
+        position: relative;
+        top: -50%;
+        right: -50%;
+    }
+}
+
+@media (width<=650px) {
+
+    .btns a,
+    .btns2 a {
+        font-size: 0.9rem;
+    }
+
+    .multiImg {
+        width: 4rem;
     }
 }
