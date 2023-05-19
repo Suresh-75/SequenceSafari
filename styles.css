@@ -109,7 +109,7 @@ i:hover {
     z-index: 1;
     position: fixed;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
     position: absolute;
     top: 50%;
     left: 50%;
@@ -117,7 +117,20 @@ i:hover {
     color: white;
 }
 
-.btns a {
+.btns2 {
+    z-index: 1;
+    position: fixed;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+}
+
+.btns a,
+.btns2 a {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -139,14 +152,15 @@ i:hover {
     justify-content: center;
     align-items: center;
     background-color: #1bb32d;
-    clip-path: polygon(49% 0%, 51% 0, 100% 100%, 0 100%);
+    clip-path: polygon(50% 0%, 100% 100%, 0 100%);
     background: linear-gradient(90deg, rgb(6, 102, 6), rgb(99, 172, 81));
-    width: 50vmin;
-    height: 30vmin;
+    width: 40vmin;
+    height: 25vmin;
     transition: 0.2s;
     cursor: pointer;
     position: relative;
-    right: -45%;
+    top: 10%;
+
 }
 
 .normalTri:hover {
@@ -161,10 +175,12 @@ i:hover {
     background-color: #1bb32d;
     clip-path: polygon(0 0, 50% 100%, 100% 0);
     background: linear-gradient(0deg, rgb(99, 172, 81), rgb(11, 128, 11));
-    width: 50vmin;
-    height: 30vmin;
+    width: 40vmin;
+    height: 25vmin;
     transition: 0.2s;
     cursor: pointer;
+    position: relative;
+    top: -10%;
 }
 
 .hackerTri:hover {
@@ -173,18 +189,46 @@ i:hover {
 }
 
 .hackerPlusTri {
+    transform: rotate(90deg);
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: #1bb32d;
-    clip-path: polygon(49% 0%, 51% 0, 100% 100%, 0 100%);
+    clip-path: polygon(50% 0, 100% 100%, 0 100%);
     background: linear-gradient(270deg, rgb(11, 128, 11), rgb(99, 172, 81));
-    width: 50vmin;
-    height: 30vmin;
+    width: 40vmin;
+    height: 25vmin;
     transition: 0.2s;
     cursor: pointer;
-    position: relative;
-    right: 45%;
+    /* position: relative;
+    right: 45%; */
+}
+
+.hackerPlusTri>a {
+    transform: rotate(-90deg);
+}
+
+.multiTri {
+    transform: rotate(-90deg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1bb32d;
+    clip-path: polygon(50% 0, 100% 100%, 0 100%);
+    background: linear-gradient(270deg, rgb(11, 128, 11), rgb(99, 172, 81));
+    width: 40vmin;
+    height: 25vmin;
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+.multiTri:hover {
+    letter-spacing: 2px;
+    background: rgb(134, 134, 126);
+}
+
+.multiTri>a {
+    transform: rotate(90deg);
 }
 
 .hackerPlusTri:hover {
@@ -203,10 +247,6 @@ i:hover {
     top: -10%;
 }
 
-.hackerPlusMode {
-    position: relative;
-    top: 15%;
-}
 
 .normalMode:hover {
     letter-spacing: 2px;
@@ -232,6 +272,8 @@ i:hover {
 .myName:hover {
     color: rgb(48, 160, 28)
 }
+
+.multiplayerBtn {}
 
 @media (width<=1000px) {
     .gameName {
