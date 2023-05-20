@@ -617,7 +617,7 @@ function gameEngine() {
                 }
             }
             if (onSnake2(lifePowerUps[i])) {
-                if (livesLeft < 5) {
+                if (livesLeft2 < 5) {
                     healthPowerSound.play()
                     lifePowerUpFunction2();
                     lifePowerUps.splice(i, 1);
