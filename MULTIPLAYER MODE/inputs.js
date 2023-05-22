@@ -12,9 +12,11 @@ function playPause() {
     if (pause === 0) {
         pause = 1;
         inputDirection = { x: 0, y: 0 };
+        inputDirection2 = { x: 0, y: 0 };
         window.removeEventListener("keydown", userInputs)
+        window.removeEventListener("touchstart", startTouch)
+        window.removeEventListener("touchmove", moveTouch)
     }
-
 }
 resumeBtn.addEventListener("click", () => {
     if (pause === 1) {

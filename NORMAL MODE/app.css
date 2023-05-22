@@ -301,6 +301,7 @@ body {
     transform: translate(-50%, -50%);
     box-shadow: 0px 0px 10px rgb(72, 71, 71);
     background-color: #a4ac86;
+    padding-top: 3rem;
 }
 
 .modal>section {

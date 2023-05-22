@@ -397,6 +397,7 @@ body {
     transform: translate(-50%, -50%);
     box-shadow: 0px 0px 10px rgb(72, 71, 71);
     background: linear-gradient(to right top, rgb(69, 68, 68), rgb(29, 110, 157));
+    padding-top: 3rem;
 }
 
 .modal>section {
